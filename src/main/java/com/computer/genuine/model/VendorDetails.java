@@ -30,6 +30,14 @@ public class VendorDetails {
 	private Date createdDate;
 	@Column(name = "LAST_UPDATED_DATE")
 	private Date lastUpdatedDate;
+	@Column(name = "ACTIVE")
+	private int status;
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	public VendorDetails() {
 		super();
 	}

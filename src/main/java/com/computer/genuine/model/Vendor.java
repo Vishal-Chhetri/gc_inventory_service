@@ -29,6 +29,16 @@ private String name;
 private Date createdDate;
 @Column(name="LAST_UPDATED_DATE")
 private Date lastUpdDate;
+@Column(name = "ACTIVE")
+private int status;
+
+public int getStatus() {
+	return status;
+}
+
+public void setStatus(int status) {
+	this.status = status;
+}
 
 @OneToMany(targetEntity=VendorDetails.class,cascade=CascadeType.ALL)
 @JoinColumn(name="USER_ID")
