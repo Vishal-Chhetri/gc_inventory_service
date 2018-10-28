@@ -21,8 +21,8 @@ import javax.persistence.Table;
 public class Vendor {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
-@Column(name="USER_ID")
-private Long user_id;
+@Column(name="VENDOR_USER_ID")
+private Long vendorUserId;
 @Column(name="NAME")
 private String name;
 @Column(name="CREATED_DATE")
@@ -32,28 +32,25 @@ private Date lastUpdDate;
 @Column(name = "ACTIVE")
 private int status;
 
-public int getStatus() {
-	return status;
-}
-
-public void setStatus(int status) {
-	this.status = status;
-}
-
 @OneToMany(targetEntity=VendorDetails.class,cascade=CascadeType.ALL)
-@JoinColumn(name="USER_ID")
+@JoinColumn(name="VENDOR_USER_ID")
 private List<VendorDetails> vendorDetailsList;
+
+@OneToMany(targetEntity=MasterItem.class,cascade=CascadeType.ALL)
+@JoinColumn(name="VENDOR_USER_ID")
+private List<MasterItem> masterItemList;
+
 
 public Vendor() {
 	super();
 }
 
-public Long getUser_id() {
-	return user_id;
+public Long getVendorUserId() {
+	return vendorUserId;
 }
 
-public void setUser_id(Long user_id) {
-	this.user_id = user_id;
+public void setVendorUserId(Long vendorUserId) {
+	this.vendorUserId = vendorUserId;
 }
 
 public String getName() {
@@ -87,5 +84,19 @@ public List<VendorDetails> getVendorDetailsList() {
 public void setVendorDetailsList(List<VendorDetails> vendorDetailsList) {
 	this.vendorDetailsList = vendorDetailsList;
 }
-	
+public int getStatus() {
+	return status;
+}
+
+public void setStatus(int status) {
+	this.status = status;
+}	
+
+public List<MasterItem> getMasterItemList() {
+	return masterItemList;
+}
+
+public void setMasterItemList(List<MasterItem> masterItemList) {
+	this.masterItemList = masterItemList;
+}
 }

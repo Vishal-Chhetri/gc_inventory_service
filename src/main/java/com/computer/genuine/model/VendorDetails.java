@@ -18,8 +18,8 @@ import javax.persistence.Table;
 public class VendorDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="USER_ID")
-	private long user_id;
+	@Column(name="ID")
+	private long id;
 	@Column(name="ADDRESS")
 	private String address;
 	@Column(name="PRIMARY_CONTACT_NO")
@@ -32,20 +32,15 @@ public class VendorDetails {
 	private Date lastUpdatedDate;
 	@Column(name = "ACTIVE")
 	private int status;
-	public int getStatus() {
-		return status;
-	}
-	public void setStatus(int status) {
-		this.status = status;
-	}
+	
 	public VendorDetails() {
 		super();
 	}
-	public long getUser_id() {
-		return user_id;
+	public long getId() {
+		return id;
 	}
-	public void setUser_id(long user_id) {
-		this.user_id = user_id;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getAddress() {
 		return address;
@@ -78,6 +73,11 @@ public class VendorDetails {
 		this.lastUpdatedDate = lastUpdatedDate;
 	}
 	
-	
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	
 }

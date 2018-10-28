@@ -47,8 +47,8 @@ public class VendorController {
 	public Vendor createVendor(@RequestBody Vendor vendor) {
 		return vendorService.saveVendor(vendor);
 	}
-	@PostMapping("/createVendor")
-	public List<Vendor> createUsers(@RequestBody List<Vendor> vendorList){
+	@PostMapping("/createVendors")
+	public List<Vendor> createVendors(@RequestBody List<Vendor> vendorList){
 		return vendorService.saveVendors(vendorList);		
 	}
 	
